@@ -22,9 +22,13 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public List < Customer > getCustomers() {
         Session session = sessionFactory.getCurrentSession();
+//        tạo ra đối tượng chứa câu lệnh truy vấn
         CriteriaBuilder cb = session.getCriteriaBuilder();
+//        khai báo đối tượng bạn muốn lấy ra sau khi thực hiện query
         CriteriaQuery< Customer > cq = cb.createQuery(Customer.class);
+//        khai báo đối tượng bạn sẽ sử dụng trong query
         Root< Customer > root = cq.from(Customer.class);
+//        lấy đối tượng CriteriaQuery đã khai báo
         cq.select(root);
         Query query = session.createQuery(cq);
         return query.getResultList();
