@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import springmvc.dao.CustomerDAO;
+
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import springmvc.entity.Customer;
 
@@ -18,6 +20,16 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+//    @Autowired
+//    private EntityManager entityManager;
+//
+//    public List<Customer> get() {
+//        Session currentSession = entityManager.unwrap(Session.class);
+//        Query query = currentSession.createQuery("select c from Customer c", Customer.class);
+//        List<Customer> list = query.getResultList();
+//        return list;
+//    }
 
     @Override
     public List < Customer > getCustomers() {
